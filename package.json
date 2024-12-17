@@ -1,0 +1,34 @@
+
+{
+  "name": "nodejs_test",
+  "version": "1.0.0",
+  "description": "A test repository for Node Modules",
+  "main": "index.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "dependencies": {
+    "Zypher_Test": "git+https://github.com/Nikhat418/Zephyr_Test.git",
+    "Arduino_ESP32":"git+https://github.com/delta-things/arduino-esp32",
+    "Test_NM": "git+https://github.com/Nikhat418/Test_NM",
+    "EAS_Gateway": "git+https://github.com/NIKHATBEGUM/EAS_GATEWAY"
+     },
+  "scripts": {
+"postinstall": "npm run postinstall:windows || npm run postinstall:linux",
+"postinstall:linux": "if [ ! -d \"OS_Base\" ]; then mkdir OS_Base; fi && rsync -av --ignore-existing node_modules/Zypher_Test/ OS_Base/Zypher_Test/",
+"postinstall:windows": "if not exist OS_Base mkdir OS_Base && move /Y node_modules\\Zypher_Test OS_Base\\",
+
+"test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nikhat418/NodeJS_Test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nikhat418/NodeJS_Test/issues"
+  },
+  "homepage": "https://github.com/Nikhat418/NodeJS_Test#readme"
+}
